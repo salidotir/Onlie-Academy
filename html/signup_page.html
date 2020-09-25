@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JS -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <title>Register Page</title>
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+
+    <!-- Header -->
+    <nav class="navbar navbar-inverse">
+        <div class="container">
+          <div class="navbar-header">
+            <img class="my-logo" src="../img/logo.png" width="90px" height="60px" />
+          </div>
+          <div>
+            <a style="font-size: xx-large;" class="navbar-brand" href="#">&nbsp;Online Academy</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+                <h1>Welcome!</h1>
+                <p>This is an online academy which you can hold your clsses and meetings online.</p>
+                <p><a href="https://github.com/salidotir" class="button btn_info">Learn more</a></p>
+        </div>
+    </div>
+
+    <!-- Signup Form -->
+    <div class="container signup-form-margin-bottom">
+      <form action="../php/register.php" method="post">
+      <div class="row">
+      <div class="col-sm-2"></div>
+      <div class="col-sm-8">
+          <h1 class="margin-bottom login-margin-left">Register</h1>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="control-label" >First name: </label>
+                <input type="text" name="first_name" class="form-control" id="formFirstName" placeholder="Enter first name" required/>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" >Last name: </label>
+                <input type="text" name="last_name" class="form-control" id="formLastName" placeholder="Enter last name" required/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="control-label" >Email: </label>
+                <input type="text" name="email" class="form-control" id="formEmail" placeholder="Enter email" required/>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" >Teacher id: </label>
+                <input type="text" name="teacher_id" class="form-control" id="formTecherId" placeholder="Enter teacher id" required/>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-6">
+                <label class="control-label" >Password: </label>
+                <input type="password" name="password_1" class="form-control" id="formPassword" placeholder="Enter password" required/>
+            </div>
+
+            <div class="form-group col-sm-6">
+                <label class="control-label" >Confirm password: </label>
+                <input type="password" name="password_2" class="form-control" id="formConfirmPassword" placeholder="Confirm password" required/>
+            </div>
+          </div>
+  
+        <input style="float: left;" type="submit" value="Register" id="btn_login" class="btn btn-primary btn-lg"/>
+      </div>
+      <div class="col-sm-2"></div>
+      </div>
+      </form>
+    </div>
+
+    <!-- Footer -->
+    <nav style="color: aliceblue; font-size: large;" class="navbar navbar-inverse">
+      <div class="container">
+        <div class="row my-logo">
+          <h2>Contacts</h2>
+        </div>
+        <div class="row my-logo">
+            <div class="col-sm-4">
+                <b>Designed by: </b>Sara Limooee
+                <br/>
+                <b>Email: </b>salidotir@gmail.com
+            </div>
+
+            <div class="col-sm-4">
+                <b>Telegram: &nbsp; </b> <a href="https://t.me/salidotir" title="@salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/telegram.png" alt=""/></a>
+                <br/>
+                <b>Github: &nbsp; </b> <a href="https://github.com/salidotir" title="salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/github.png" alt=""/></a>
+            </div>
+        </div>
+      </div>
+    </nav>
+    
+</body>
+</html>

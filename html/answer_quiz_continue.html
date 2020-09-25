@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <title>Answer Quiz</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <img class="my-logo" src="../img/logo.png" width="90px" height="60px" />
+        </div>
+        <div>
+          <a style="font-size: xx-large;" class="navbar-brand" href="#">&nbsp;Online Academy</a>
+        </div>
+      </div>
+    </nav>
+  
+    <!-- Quiz -->
+    <h1 class="margin-bottom" style="margin-top: 80px; margin-left: 650px;">Answer Quiz</h1>
+    <div class="row"></div>
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4">
+            <div id="quiz"></div>
+        </div>
+        <div class="col-sm-4"></div>
+    </div>
+
+    <div class="row" style="margin-left: 500px;">
+        <div class="col-sm-2"></div>
+        <div class="col-sm-6">
+            <button class="btn-success btn-lg btn-block" id="submit1">Submit Quiz</button>
+            <button class="btn-danger btn-lg btn-block" id="leave">Leave Quiz</button>
+        </div>
+        <div class="col-sm-2"></div>
+    </div>
+
+    <div class="row" style="margin-bottom: 200px;">
+      <div class="col-sm-4"></div>
+      <div class="col-sm-4">
+        <div id="results"></div>
+      </div>
+      <div class="col-sm-4"></div>
+    </div>
+
+    <!-- Footer -->
+    <nav style="color: aliceblue; font-size: large;" class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <div class="row my-logo">
+          <h2>Contacts</h2>
+        </div>
+        <div class="row my-logo">
+            <div class="col-sm-4">
+                <b>Designed by: </b>Sara Limooee
+                <br/>
+                <b>Email: </b>salidotir@gmail.com
+            </div>
+
+            <div class="col-sm-4">
+                <b>Telegram: &nbsp; </b> <a href="https://t.me/salidotir" title="@salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/telegram.png" alt=""/></a>
+                <br/>
+                <b>Github: &nbsp; </b> <a href="https://github.com/salidotir" title="salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/github.png" alt=""/></a>
+            </div>
+        </div>
+      </div>
+    </nav>
+
+</body>
+
+<script>
+
+(function(){
+  function buildQuiz(){
+    // variable to store the HTML output
+    const output = [];
+
+    // for each question...
+    myQuestions.forEach(
+      (currentQuestion, questionNumber) => {
+
+        // variable to store the list of possible answers
+        const answers = [];
+
+        // and for each available answer...
+        for(letter in currentQuestion.answers){
+
+          // ...add an HTML radio button
+          answers.push(
+            `<label>
+              <input type="radio" name="question${questionNumber}" value="${letter}">
+              ${letter} :
+              ${currentQuestion.answers[letter]}
+            </label>`
+          );
+        }
+
+        // add this question and its answers to the output
+        output.push(
+          `<div class="question"> ${currentQuestion.question} </div>
+          <div class="answers"> ${answers.join('')} </div>`
+        );
+      }
+    );
+
+    // finally combine our output list into one string of HTML and put it on the page
+    quizContainer.innerHTML = output.join('');
+  }
+
+  function showResults(){
+
+    // gather answer containers from our quiz
+    const answerContainers = quizContainer.querySelectorAll('.answers');
+
+    // keep track of user's answers
+    let numCorrect = 0;
+
+    // for each question...
+    myQuestions.forEach( (currentQuestion, questionNumber) => {
+
+      // find selected answer
+      const answerContainer = answerContainers[questionNumber];
+      const selector = `input[name=question${questionNumber}]:checked`;
+      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+
+      // if answer is correct
+      if(userAnswer === currentQuestion.correctAnswer){
+        // add to the number of correct answers
+        numCorrect++;
+
+        // color the answers green
+        answerContainers[questionNumber].style.color = 'lightgreen';
+      }
+      // if answer is wrong or blank
+      else{
+        // color the answers red
+        answerContainers[questionNumber].style.color = 'red';
+      }
+    });
+
+    // show number of correct answers out of total
+    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+  }
+
+  function leave_quiz() {
+    window.location.href = "answer_quiz.html";
+  }
+
+  const quizContainer = document.getElementById('quiz');
+  const resultsContainer = document.getElementById('results');
+  const submitButton = document.getElementById('submit1');
+  const leaveButton = document.getElementById('leave');
+  const myQuestions = [
+    {
+      question: "How many is 2+2?",
+      answers: {
+        a: "22",
+        b: "4",
+        c: "non of the above"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Who is the director of movie 'Sully'?",
+      answers: {
+        a: "Steven Spielberg",
+        b: "Clint Eastwood",
+        c: "Quentin Tarantino"
+      },
+      correctAnswer: "b"
+    },
+    {
+      question: "Where is capital of United States?",
+      answers: {
+        a: "Washington, D.C.",
+        b: "New York, N.Y.",
+        c: "Chicago, I.L.",
+        d: "Loa Angeles, C.A."
+      },
+      correctAnswer: "a"
+    },
+    {
+      question: "Which city has 'Kalam polo' come from?",
+      answers: {
+        a: "Tabriz",
+        b: "Isfahan",
+        c: "Tehran",
+        d: "Shiraz"
+      },
+      correctAnswer: "d"
+    }
+  ];
+
+  // Kick things off
+  buildQuiz();
+
+  // Event listeners
+  submitButton.addEventListener('click', showResults);
+  leaveButton.addEventListener('click', leave_quiz);
+})();
+</script>
+</html>

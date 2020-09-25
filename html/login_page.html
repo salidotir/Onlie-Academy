@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- JS -->
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../css/index.css">
+    <!-- Bootstrap -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+
+    <title>Login Page</title>
+</head>
+<body style="background-color: rgb(238, 238, 238);">
+
+    <!-- Header -->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <div class="navbar-header">
+            <img class="my-logo" src="../img/logo.png" width="90px" height="60px" />
+          </div>
+          <div>
+            <a style="font-size: xx-large;" class="navbar-brand" href="#">&nbsp;Online Academy</a>
+          </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="jumbotron">
+                <h1>Welcome!</h1>
+                <p>This is an online academy which you can hold your clsses and meetings online.</p>
+                <p><a href="https://github.com/salidotir" class="button btn_info">Learn more</a></p>
+        </div>
+    </div>
+
+    <!-- Login Form -->
+    <div class="container login-form-margin-bottom">
+      
+      <div class="row">
+      <div class="col-sm-3"></div>
+      <div class="col-sm-6">
+          <h1 class="margin-bottom login-margin-left">Login</h1>
+
+          <form action="../php/login.php" method="post">
+            <div class="form-group">
+              <label class="control-label">Teacher id: </label>
+              <input type="text" name="formTecherId" class="form-control" id="formTecherId" placeholder="Enter teacher id" required/>
+            </div>
+
+            <div class="form-group">
+              <label class="control-label">Password: </label>
+              <input type="password" name="formPassword" class="form-control" id="formPassword" placeholder="Enter password" required/>
+            </div>
+    
+            <div style="margin-top: 10px;" class="form-row">
+              <input style="float: left;" type="submit" value="login" class="btn btn-primary btn-lg"/>
+              <div style="margin-top: 10px; float: left; font-size: large;">
+                <p style="float: left;"> &nbsp; Don't have an account?&nbsp;</p><a href="signup_page.html">Click here.</a>
+              </div>
+            </div>
+          </form>
+      </div>
+      <div class="col-sm-3"></div>
+      </div>
+      
+    </div>
+
+    <!-- Footer -->
+    <nav style="color: aliceblue; font-size: large;" class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <div class="row my-logo">
+          <h2>Contacts</h2>
+        </div>
+        <div class="row my-logo">
+            <div class="col-sm-4">
+                <b>Designed by: </b>Sara Limooee
+                <br/>
+                <b>Email: </b>salidotir@gmail.com
+            </div>
+
+            <div class="col-sm-4">
+                <b>Telegram: &nbsp; </b> <a href="https://t.me/salidotir" title="@salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/telegram.png" alt=""/></a>
+                <br/>
+                <b>Github: &nbsp; </b> <a href="https://github.com/salidotir" title="salidotir"><img className="icon-class" width="30px" height="30px" src="../icon/github.png" alt=""/></a>
+            </div>
+        </div>
+      </div>
+    </nav>
+    
+</body>
+</html>
