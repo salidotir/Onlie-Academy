@@ -1,4 +1,4 @@
-# Onlie Academy
+# Online Academy
 Online Academy website<br/>
 Front-end: HTML, CSS, Bootstrap, Javascript<br/>
 Back-end: PHP
